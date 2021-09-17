@@ -1,0 +1,43 @@
+package JavaCodeDay4;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Assignment2 {
+
+	public static void main(String[] args) {
+	
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver faceBook = new ChromeDriver();
+		faceBook.manage().window().maximize();
+		faceBook.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		
+		faceBook.get("https://en-gb.facebook.com/");
+		faceBook.findElement(By.xpath("//a[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
+		faceBook.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Mithra");
+		faceBook.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Shankar");
+		faceBook.findElement(By.xpath("//input[@name='reg_email__']")).sendKeys("9899765449");
+		faceBook.findElement(By.xpath("//input[@name='reg_passwd__']")).sendKeys("SHANKAR");
+		
+		WebElement drop1 = faceBook.findElement(By.id("day"));
+		Select daydrop = new Select(drop1);
+		daydrop.selectByValue("4");
+		
+		WebElement drop2 = faceBook.findElement(By.id("month"));
+		Select monthdrop = new Select(drop2);
+		monthdrop.selectByIndex(4);
+		
+		WebElement drop3 = faceBook.findElement(By.id("year"));
+		Select yeardrop = new Select(drop3);
+		yeardrop.selectByVisibleText("2014");
+		
+		faceBook.findElement(By.className("_58mt")).click();
+		faceBook.findElement(By.id("u_2_s_4H")).click();
+		

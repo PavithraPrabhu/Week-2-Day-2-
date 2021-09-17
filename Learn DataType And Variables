@@ -1,0 +1,24 @@
+package JavaCodeDay1;
+
+public class LearnDataTypeAndVariables {
+
+	public static void main(String[] args) {
+	
+		byte ramSize = 8;
+		String brandName = "Samsung";
+		float screenSize = 6.5F;
+		short weight = 187;
+		String colour = "Blue";
+		char chargerPattern = 'c';
+		boolean isTouchScreen = true;
+		double number = 100.23345679;
+		long mobileNumber = 996675439L ;
+				
+		System.out.println("My mobile Brand is:" +brandName);
+		System.out.println("My mobile Colour is:" +colour);
+		System.out.println("My mobile Number is:" +mobileNumber);
+		System.out.println("is my mobile touch:" + isTouchScreen);
+	}
+	
+
+}

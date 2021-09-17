@@ -1,0 +1,92 @@
+package JavaCodeDay3;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LaunchLeafTabApp {
+
+	public static void main(String[] args) {
+
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver leafTab = new ChromeDriver();
+		leafTab.manage().window().maximize();
+
+		leafTab.get("http://leaftaps.com/opentaps/control/main");
+
+		String title = leafTab.getTitle();
+		System.out.println("title is:" + title);
+
+		WebElement Username = leafTab.findElement(By.id("username"));
+		Username.sendKeys("demosalesmanager");
+		WebElement Password = leafTab.findElement(By.id("password"));
+		Password.sendKeys("crmsfa");
+
+		WebElement loginButton = leafTab.findElement(By.className("decorativeSubmit"));
+		loginButton.click();
+
+		WebElement crmHyperlink = leafTab.findElement(By.linkText("CRM/SFA"));
+		crmHyperlink.click();
+
+		WebElement leadTab = leafTab.findElement(By.linkText("Leads"));
+		leadTab.click();
+
+		WebElement createLeadTab = leafTab.findElement(By.linkText("Create Lead"));
+		createLeadTab.click();
+
+		WebElement companyName = leafTab.findElement(By.id("createLeadForm_companyName"));
+		companyName.sendKeys("Honeywell");
+
+		WebElement firstName = leafTab.findElement(By.id("createLeadForm_firstName"));
+		firstName.sendKeys("Pavithra");
+
+		WebElement lastName = leafTab.findElement(By.id("createLeadForm_lastName"));
+		lastName.sendKeys("Prabhu Shankar");
+
+		WebElement firstNameLocal = leafTab.findElement(By.id("createLeadForm_firstNameLocal"));
+		firstNameLocal.sendKeys("Mithun Shankar");
+
+		WebElement lastNameLocal = leafTab.findElement(By.id("createLeadForm_lastNameLocal"));
+		lastNameLocal.sendKeys("Mithra Shankar");
+
+		WebElement title1 = leafTab.findElement(By.id("createLeadForm_generalProfTitle"));
+		title1.sendKeys("Software Test Engg");
+
+		WebElement dept = leafTab.findElement(By.id("createLeadForm_departmentName"));
+		dept.sendKeys("Engg");
+
+		WebElement descrip = leafTab.findElement(By.id("createLeadForm_description"));
+		descrip.sendKeys("abcgjhasgfjasgfjhgas");
+
+		WebElement countrycode = leafTab.findElement(By.id("createLeadForm_primaryPhoneCountryCode"));
+		countrycode.clear();
+		countrycode.sendKeys("4");
+
+		WebElement toName = leafTab.findElement(By.id("createLeadForm_generalToName"));
+		toName.sendKeys("Jaishree");
+
+		WebElement address1 = leafTab.findElement(By.id("createLeadForm_generalAddress1"));
+		address1.sendKeys("DoorNo 123A, radhanagar, Rajaji street");
+
+		WebElement address2 = leafTab.findElement(By.id("createLeadForm_generalAddress2"));
+		address2.sendKeys("PO Box 23456");
+
+		WebElement city = leafTab.findElement(By.id("createLeadForm_generalCity"));
+		city.sendKeys("Newyork");
+
+		WebElement postalCode = leafTab.findElement(By.id("createLeadForm_generalPostalCode"));
+		postalCode.sendKeys("123456");
+
+		WebElement stateDropDown = leafTab.findElement(By.id("createLeadForm_generalStateProvinceGeoId"));
+		Select state = new Select(stateDropDown);
+		state.selectByValue("AR");
+				
+		WebElement createLeadTab1 = leafTab.findElement(By.className("smallSubmit"));
+		createLeadTab1.click();
+
+	}
+
+}

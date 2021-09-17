@@ -1,0 +1,15 @@
+package JavaCodeDay2;
+
+public class ContinueAssignmentPrintoddno {
+
+	public static void main(String[] args) {
+		int i;
+		System.out.println("The Odd Numbers Are:" );
+		for (i=1;i<=20;i++) {
+			if (i%2==0) {
+				continue;}
+			System.out.println(i);	
+			
+		}
+
+	}}

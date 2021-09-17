@@ -1,0 +1,22 @@
+package JavaCodeDay2;
+
+public class whileSumOfNumbers {
+
+	public static void main(String[] args) {
+		int num = 2345;
+		int quo = 0, rem = 0, sum = 0;
+
+		while (num != 0) {
+			quo = num / 10;
+			System.out.println("Quotient=" +quo);	
+			rem = num % 10;
+			System.out.println("Reminder=" +rem);
+			sum = sum + rem;
+			System.out.println("The Number:" +num);
+			num = quo;
+
+		}
+		System.out.println("Sum is:" + sum);
+		
+	}
+}

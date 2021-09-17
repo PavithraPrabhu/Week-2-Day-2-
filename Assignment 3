@@ -1,0 +1,44 @@
+package JavaCodeDay4;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Assignment3 {
+
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver salesForce = new ChromeDriver();
+		salesForce.manage().window().maximize();
+		salesForce.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+		salesForce.get("https://www.salesforce.com/in/form/signup/freetrial-sales/?d=70130000000Enyk");
+
+		
+		salesForce.findElement(By.xpath("//input[@name='UserFirstName']")).sendKeys("Mithra");
+		salesForce.findElement(By.xpath("//input[@name='UserLastName']")).sendKeys("Shankar");
+		salesForce.findElement(By.xpath("//input[@name='UserEmail']")).sendKeys("mm@gmail.com");
+		salesForce.findElement(By.xpath("//input[@name='CompanyName']")).sendKeys("Honeywell");
+		
+		WebElement drop1 = salesForce.findElement(By.xpath("//select[@name='UserTitle']"));
+		Select JobTitle = new Select(drop1);
+		JobTitle.selectByValue("Marketing_PR_Manager_AP");
+	
+		
+		WebElement drop2 = salesForce.findElement(By.xpath("//select[@name='CompanyEmployees']"));
+		Select Employee = new Select(drop2);
+		Employee.selectByValue("1600");
+		
+		salesForce.findElement(By.xpath("//input[@name='UserPhone']")).sendKeys("9894658510");
+		
+		WebElement drop3 = salesForce.findElement(By.xpath("//select[@name='CompanyCountry']"));
+		Select country = new Select(drop3);
+		country.selectByValue("AZ");
+		
+		salesForce.findElement(By.className("checkbox-ui-label")).click();
+		
